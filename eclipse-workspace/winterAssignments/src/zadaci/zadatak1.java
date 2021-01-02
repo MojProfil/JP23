@@ -8,9 +8,10 @@ public class zadatak1 {
 		// TODO Auto-generated method stub
 		Scanner skener = new Scanner(System.in);
 		
-		String a = skener.nextLine();
-		System.out.println("Unesi kod: " + a);
 		
+		System.out.print("Unesi kod: ");
+		int a = skener.nextInt();
+		System.out.println("Entered code is: " + a);
 		
 	}
 
