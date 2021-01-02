@@ -59,10 +59,3 @@ END;
 delimiter ;
 
 
-SELECT
-	round(datediff(now(), '1993-07-12')/365.25) AS godina,
-	round(datediff(now(), '1993-07-12')%365.25%12) AS mjeseci,
-	round(datediff(now(), '1993-07-12')%365.25%30.4375) AS dani;
-
-# (365*3)+(366) = 365.25  
-# (((3*365)+(366))/12)/4 = 30.4375 

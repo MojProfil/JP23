@@ -1,9 +1,7 @@
-
-
 # win+r, upiši cmd te zaljepi sljedeću liniju (prilagoditi putanje - diskove)
-# c:\xampp\mysql\bin\mysql -uedunova -pedunova < d:\skriptajp23.sql
+# c:\xampp\mysql\bin\mysql -uedunova -pedunova --default_character_set=utf8 < d:\skriptajp23.sql
 drop database if exists edunovajp23;
-create database edunovajp23 CHARACTER SET utf8; 
+create database edunovajp23 CHARACTER SET utf8mb4 collate utf8mb4_croatian_ci; 
 
 use edunovajp23;
 
@@ -18,7 +16,7 @@ create table smjer(
 create table grupa(
     sifra int not null primary key auto_increment,
     naziv varchar(20) not null,
-    smjer int,
+    smjer int not null,
     predavac int,
     datumpocetka datetime,
     brojpolaznika int not null
@@ -59,37 +57,59 @@ alter table polaznik add foreign key (osoba) references osoba(sifra);
 alter table clan add foreign key (grupa) references grupa(sifra);
 alter table clan add foreign key (polaznik) references polaznik(sifra);
 
-insert into smjer (sifra,naziv,cijena,trajanje,verificiran) values 
-(null,'Računalni operator', 2000, 200, null);
 
-insert into smjer (sifra,naziv,cijena,trajanje,verificiran) values 
-(null, 'Java programer', 4999.99, 120, null);
+# najlošiji
+# 1
+insert into smjer values (null,'Java programiranje',4999.99,130,true); 
 
-insert into smjer values 
-(null, 'PHP programer', 3499.99, 100, null);
+# malo bolji način
+# 2
+insert into smjer (sifra,naziv) values (null,'PHP programer');
 
-insert into grupa (naziv, smjer, brojpolaznika) values 
-('JP23', 2, 13);
-
-insert into grupa (naziv,smjer,brojpolaznika) values 
-('PP22', 1, 13);
-
-insert into osoba (ime, prezime, email) values
-('Tomislav', 'Jakopec', 'tjakopec@gmail.com'),
-('Daniel', 'Gluhak', 'gluhakdaniel@gmail.com'),
-('Arijana', 'Gluhak', 'ag@gm.com'),
-('Shaquille', 'O\'neal', 'shaquile@oneal.com');
-
-INSERT INTO predavac (sifra,osoba) VALUES
-(NOT NULL, 4);
-INSERT INTO predavac (sifra,osoba) VALUES
-(NOT NULL, 1);
+# best practice
+# 3
+insert into smjer (sifra,naziv,cijena,trajanje,verificiran)
+values (null,'Računalni operator',2000,200,null);
 
 
-SELECT * FROM grupa;
+# 1
+insert into grupa(naziv,smjer,brojpolaznika) values ('JP23',1,13);
 
-UPDATE grupa SET predavac = 2 WHERE sifra = 1; 
-UPDATE grupa SET predavac = 1 WHERE sifra = 2;
+# 2
+insert into grupa(naziv,smjer,brojpolaznika) values ('PP22',2,13);
+
+# 1 - 20
+insert into osoba (prezime,ime,email) values
+('Jakopec','Tomislav','tjakopec@gmail.com'),
+('Šantek','Natalija','natalis811@gmail.com'),
+('Čiček','David','official.davidcicek@gmail.com '),
+('Ivezić','Iva','ivaivezic95@gmail.com'),
+('Nebes','Tomislav','tomislav.nebes@gmail.com'),
+('Blatančić','Antonio','antonio.blatancic21@gmail.com'),
+('Jurišić','Ivan','ivan.1jurisic@gmail.com'),
+('Bralić','Marija','marija.bralic96@gmail.com'),
+('Svalina','Gabriela','gabriela.svalina@gmail.com'),
+('Nađ','Filip','filip.nad100@gmail.com'),
+('Bebek','Marko','bebekm77@gmail.com'),
+('Klobučar','Filip','filip.klobucar1@hotmail.com'),
+('Gluhak','Daniel','gluhakdaniel@gmail.com'),
+('Ivić','Matija','matija.ivic@gmail.com'),
+('Vujičić','Velimir','velimir.vujicic@hotmail.com'),
+('Cuca','Luka','lukacuca@gmail.com'),
+('Predmerski','Boris','bpredmerski@gmail.com'),
+('Milišić','Laura','laura.milisic@outlook.com'),
+('Kovačić','Laura','laurakciic@gmail.com'),
+('Kovačević','Ivana','kovacevic.ivana044@gmail.com');
 
 
+#1
+insert into predavac (osoba,iban) values (1,'');
+
+
+
+insert into polaznik (osoba)
+select sifra from osoba where sifra>1;
+
+insert into clan (grupa,polaznik)
+select 1,sifra from polaznik;
 
