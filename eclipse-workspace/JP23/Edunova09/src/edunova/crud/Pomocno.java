@@ -7,6 +7,8 @@ public class Pomocno {
 	private static final Scanner ulaz = new Scanner(System.in);
 	
 	
+	
+	
 	public static int ucitajCijeliBroj(String poruka) {
 		int i;
 		while(true) {

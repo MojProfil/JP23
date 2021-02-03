@@ -6,10 +6,8 @@ public class Smjer {
 	private String naziv;
 	
 	public Smjer() {
-		super();
-		this.sifra = sifra;
-		this.naziv = naziv;
 	}
+	
 	public int getSifra() {
 		return sifra;
 	}

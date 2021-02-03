@@ -8,6 +8,8 @@ public class Start {
 	private List<Smjer> smjerovi;
 	private List<Grupa> grupe;
 	
+	
+	
 	public Start() {
 		smjerovi= new ArrayList<>();
 		grupe = new ArrayList<>();
@@ -176,6 +178,7 @@ public class Start {
 	
 	public static void main(String[] args) {
 		new Start();
+		
 	}
 
 }
