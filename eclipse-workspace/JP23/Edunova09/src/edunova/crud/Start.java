@@ -97,7 +97,8 @@ public class Start {
 		for (Smjer smjer : smjerovi) {
 			System.out.println(smjer.getNaziv());
 		}
-		smjerovi.remove(Pomocno.ucitajCijeliBroj("Unesite broj smjera koji želite obrisati"));
+		int x = Pomocno.ucitajCijeliBroj("Odabir smjera za brisanje");
+		smjerovi.remove(x);
 	}
 	
 					//			*******************GRUPE******************			//
@@ -158,11 +159,13 @@ public class Start {
 	}
 //	
 	private void obrisiGrupu() {
-		for (Smjer smjer : smjerovi) {
-			System.out.println(smjer.getNaziv());
+		for (Grupa grupa : grupe) {
+			System.out.println(grupa.getNaziv());
 		}
-		
-	}
+		System.out.println("Izaberite grupu za brisanje");
+		int x = Pomocno.ucitajCijeliBroj("Odabir grupe za brisanje");
+		grupe.remove(x);
+}
 
 	
 	
