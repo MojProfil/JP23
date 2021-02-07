@@ -114,17 +114,16 @@ public class Start {
 	}
 	private void prikaziRadniNalog() {
 		for (RadniNalog rn : radniNalozi) {
-			System.out.println(rn.getSifra() + ". " +"Kupac: " + buyer.getImeKupca() + " " + buyer.getPrezimeKupca() + 
-					"   \nVozilo: " + vehicle.getMarka() + vehicle.getModel() + "\n");
+			System.out.println(rn.getSifra() + ". " +"Kupac: " + rn.kupac.getImeKupca() + " " + rn.kupac.getPrezimeKupca() + 
+					"   \nVozilo: " + rn.vozilo.getMarka() + rn.vozilo.getModel() + "\n");
 		}
-		ucitajNaloge();
 		radSaNalozima();
 	}
 	
 	private void obrisiRadniNalog() {
 		for (RadniNalog rn : radniNalozi) {
-			System.out.println(rn.getSifra() + ". " +"Kupac: " + buyer.getImeKupca() + " " + buyer.getPrezimeKupca() + 
-					"   \nVozilo: " + vehicle.getMarka() + vehicle.getModel() + "\n");
+			System.out.println(rn.getSifra() + ". " +"Kupac: " + rn.kupac.getImeKupca() + " " + rn.kupac.getPrezimeKupca() + 
+					"   \nVozilo: " + rn.vozilo.getMarka() + rn.vozilo.getModel() + "\n");
 		}
 		int x = Metode.ucitajCijeliBroj("Odabir šifre radnog naloga");
 				radniNalozi.remove(x);
