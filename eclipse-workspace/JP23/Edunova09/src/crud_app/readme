@@ -1,0 +1,4 @@
+Aplikacija je zamišljena na način da djelatnik unosi nove kupce i vozila kroz console sučelje. Aplikacija se sastoji od glavne klase Start i ostalih klasa. 
+Klasa RadniNalog u sebi sadrži objekte tipa Kupac i Vozilo, te se kroz tu klasu postavljaju nove vrijednosti vozilima i kupcima.
+Klasa Racun će biti dovršena, te će sadržavati stavke roba i usluga sa cijenama za svaku pojedinu stavku, a vezati će se na RadniNalog.
+Još treba napraviti upload na FireBase.
