@@ -39,6 +39,7 @@ public class HibernateUtil {
                SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
                 
                 session=sessionFactory.openSession();
+                
             } catch (Exception e) {
                 
                 e.printStackTrace();
